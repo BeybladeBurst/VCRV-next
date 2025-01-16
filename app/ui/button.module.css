@@ -1,0 +1,27 @@
+.button {
+    display:block;
+    font-size:2em; text-align:center;
+    width:5em;
+    margin:1em auto; padding:.5em;
+    border:.1em solid hsl(var(--theme),100%,50%); border-radius:.5em;
+    transition:--stop 10s cubic-bezier(0,.2,0,1);
+    background:rgba(255,255,255,.2);
+
+    &:hover {
+        filter:brightness(150%);
+    }
+    &[class~=loading] {
+        background:linear-gradient(to right,hsla(var(--theme),80%,60%,.5) var(--stop),transparent var(--stop));
+        --stop:100%;
+    }
+    @property --stop {
+        syntax:'<percentage>';
+        initial-value:0%;
+        inherits: false;
+    }
+}
+.button svg {
+    height:3em;
+    display:block;
+    margin:auto;
+}

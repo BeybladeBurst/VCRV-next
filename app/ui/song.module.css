@@ -1,0 +1,39 @@
+.song {
+    display:grid; grid-template:'thumb title user' 3em 'thumb title year' 1em / calc(4em/3*4) 1fr 3em;
+    gap:0 .4rem;
+    padding:.4rem 0;
+}
+.song img:is([class=video],[class=user]) {
+    width:100%;
+}
+.song a:has(img[class=video]) {
+    grid-area:thumb;
+}
+.song h2 {
+    grid-area:title; align-self:center;
+    font-size:.8em; line-height:1.3;
+}
+.song a[href^='/list/'] {
+    grid-area:2/2/3/4; justify-self:end;
+    font-size:.7em; text-align:right; line-height:1.7;
+    z-index:1;
+}
+.song a:has(img[class=user]) {
+    grid-area:user;
+    height:100%; width:auto;
+}
+.song nav {
+    grid-area:title; 
+    display:flex; align-items:center;
+}
+.song nav a {
+    opacity:0; transition:opacity .5s;
+    width:100%;
+    text-align:center;
+}
+.song nav a:hover {
+    opacity:.7;
+}
+.song nav img {
+    height:2.5em;
+}

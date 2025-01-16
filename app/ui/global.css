@@ -1,0 +1,46 @@
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+body,h1,h2,h3,h4,h5,h6,ul,ol,button,a {
+  all:unset;
+}
+:root {
+  font-family:"Hiragino maru Gothic Pro","微軟正黑體","Microsoft JhengHei",Sans-Serif;
+  -webkit-text-size-adjust:100%;
+  background:repeating-linear-gradient(60deg,black 0 20%,hsla(var(--theme),100%,50%,.2) 20% 40%) 0 0 / 100vw 115vw,
+    linear-gradient(black,black);
+  --theme:42;
+  color:white;
+}
+main {
+  max-width:30em; min-height:100vh;
+  margin:auto; padding:.4rem;
+  background:hsla(var(--theme),100%,30%,.5);
+}
+main.menu {
+  display:flex; flex-direction:column;
+  justify-content: center;
+}
+input:is([type=radio],[type=checkbox]) {
+  display:none;
+}
+label:has(input:not(:checked)) {
+  filter:saturate(0) brightness(.6);
+  cursor:pointer;
+}
+label {
+  white-space:nowrap;
+}
+data[value]::before {
+  content:attr(value);
+}
+form:not([hidden])+div,[hidden] {
+  display:none;
+}
+a[href],label,button {
+  color:hsl(var(--theme),100%,90%);
+  cursor:pointer;
+}
+svg {
+  height:1.4rem; vertical-align:-.3rem;
+}
