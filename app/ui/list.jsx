@@ -9,7 +9,7 @@ const sorter = {
     'Date-D': (s, t) => new Date(t.date) - new Date(s.date),
     'Uploader': (s, t) => s.uid - t.uid
 }
-const list = ({songs, deleted, order}) => {
+const list = ({songs, deleted, order, hidden}) => {
     const sorting = new UseState();
     const Hidden = {
         public: new UseState(false),
@@ -19,7 +19,8 @@ const list = ({songs, deleted, order}) => {
         sorting.set(target.value) : 
         (Hidden.public.set(target.value == 'deleted'), Hidden.deleted.set(target.value == 'public'));
 
-    return (<>
+    return (
+    <section hidden={hidden}>
         <div className={styles.menu} onChange={change}>
             <label>
                 <input type='radio' name='status' value='public' defaultChecked></input>
@@ -49,6 +50,6 @@ const list = ({songs, deleted, order}) => {
             {deleted.map(song => <Song song={song} key={song.vid}></Song>)}
         </ul>
         <button onClick={() => scrollTo(0,0)}><ArrowUpCircleIcon className={styles.top}/></button>
-    </>)
+    </section>)
 }
 export default list;

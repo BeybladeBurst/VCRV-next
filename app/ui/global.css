@@ -34,7 +34,7 @@ label {
 data[value]::before {
   content:attr(value);
 }
-form:not([hidden])+div,[hidden] {
+[hidden] {
   display:none;
 }
 a[href],label,button {

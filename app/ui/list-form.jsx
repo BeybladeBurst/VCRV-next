@@ -40,7 +40,7 @@ const Form = () => {
             <Button type='submit' loading={loading.value ? 'loading' : ''}><HeartIcon/>FAVE</Button>
             <input value={fave} type='hidden' name='vids' readOnly/>
         </form>
-        <List songs={Songs.public.value} deleted={Songs.deleted.value}/>
+        <List hidden={!hidden.value} songs={Songs.public.value} deleted={Songs.deleted.value}/>
     </>)
 }
 const Holder = ({songs: original, uid}) => {
